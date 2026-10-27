@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal for an Ecological Volunteer Movement</title>
-    <!-- Using Tailwind CSS for layout. Tailwind relies on rem, %, vw/vh, perfectly matching the "no fixed px for widths/margins" requirement -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,13 +21,10 @@
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 w-full overflow-x-hidden">
 
-    <!-- 1. Header/Nav Component -->
     <header class="w-full bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
-        <!-- Desktop Container -->
         <div class="max-w-[80rem] mx-auto p-[1rem] flex justify-between items-center w-full">
             
-            <!-- Logo: International recycling symbol -->
-            <a href="#" class="flex items-center gap-[0.5rem] text-[1.5rem] font-bold text-green-600 dark:text-green-400">
+           <a href="#" class="flex items-center gap-[0.5rem] text-[1.5rem] font-bold text-green-600 dark:text-green-400">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[2rem] h-[2rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                     <path d="M3.27 6.96L12 12.01l8.73-5.05"></path>
@@ -37,7 +33,6 @@
                 <span>EcoPortal</span>
             </a>
 
-            <!-- Adaptive navigation bar (Desktop) -->
             <nav class="hidden md:flex gap-[2rem] items-center text-[1rem]">
                 <a href="#eco-actions" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">Eco-Actions</a>
                 <a href="#collection-points" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">Collection Points</a>
@@ -45,7 +40,6 @@
                 <a href="#volunteer" class="hover:text-green-600 dark:hover:text-green-400 transition-colors font-semibold">Become a Volunteer</a>
             </nav>
 
-            <!-- Burger Menu Button (Mobile) -->
             <button id="burger-btn" class="md:hidden p-[0.5rem] focus:outline-none" aria-label="Open Menu">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-[1.5rem] h-[1.5rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -53,7 +47,6 @@
             </button>
         </div>
 
-        <!-- Hidden burger menu on smartphones -->
         <nav id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-gray-100 dark:bg-gray-700 w-full p-[1rem] gap-[1rem] shadow-inner">
             <a href="#eco-actions" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem]">Eco-Actions</a>
             <a href="#collection-points" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem]">Collection Points</a>
@@ -64,14 +57,11 @@
 
     <main class="w-full flex flex-col items-center">
         
-        <!-- 2. Hero Section Component -->
         <section id="eco-actions" class="hero-bg w-full flex flex-col justify-center items-center text-center p-[2rem] min-h-[50vh] md:min-h-[70vh]">
             <div class="max-w-[40rem] flex flex-col items-center gap-[1.5rem]">
-                <!-- Structured header typography -->
                 <h1 class="text-[2.5rem] md:text-[4rem] font-extrabold text-white leading-tight">
                     Let's Make Our City Cleaner Together
                 </h1>
-                <!-- Emphasized Call to Action (CTA) element -->
                 <button onclick="document.getElementById('volunteer').scrollIntoView({behavior: 'smooth'})" 
                         class="bg-green-600 hover:bg-green-700 text-white font-bold py-[1rem] px-[2rem] rounded-full text-[1.125rem] transition-transform transform hover:scale-105 shadow-lg w-full md:w-auto">
                     I Want to Join the Clean-up Day
@@ -79,12 +69,9 @@
             </div>
         </section>
 
-        <!-- 3. Grid Section Component (Collection Points) -->
         <section id="collection-points" class="w-full max-w-[80rem] p-[2rem] my-[2rem] md:my-[4rem] flex flex-col gap-[2rem]">
             <h2 class="text-[2rem] font-bold text-center">Infrastructure & Collection Points</h2>
             
-            <!-- Informational multi-column matrix (Grid) -->
-            <!-- grid-cols-1 on mobile, md:grid-cols-3 on desktop -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-[1.5rem] w-full">
                 
                 <article class="bg-white dark:bg-gray-800 p-[1.5rem] rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-[1rem]">
@@ -137,7 +124,6 @@
             </div>
         </section>
 
-        <!-- 4. Feedback Form Component -->
         <section id="volunteer" class="w-full bg-green-50 dark:bg-gray-800 p-[2rem] py-[4rem] flex justify-center">
             <div class="max-w-[40rem] w-full flex flex-col gap-[1.5rem] bg-white dark:bg-gray-900 p-[2rem] rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
                 <div class="text-center">
@@ -145,7 +131,6 @@
                     <p class="text-[0.875rem] text-gray-500 dark:text-gray-400 mt-[0.5rem]">Fill out the questionnaire to join our applicant pool.</p>
                 </div>
 
-                <!-- Interactive data collection form with CSS validation -->
                 <form action="#" method="POST" class="flex flex-col gap-[1.25rem]">
                     
                     <div class="flex flex-col gap-[0.5rem]">
@@ -154,7 +139,6 @@
                                class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
                     </div>
 
-                    <!-- Checklist requirement: type="email" and type="tel" -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-[1.25rem] w-full">
                         <div class="flex flex-col gap-[0.5rem] w-full">
                             <label for="v-email" class="text-[0.875rem] font-semibold">Email Address *</label>
@@ -201,11 +185,9 @@
 
     </main>
 
-    <!-- 5. Footer Component -->
     <footer class="w-full bg-gray-900 text-gray-300 py-[3rem] px-[2rem] flex flex-col items-center">
         <div class="max-w-[80rem] w-full grid grid-cols-1 md:grid-cols-4 gap-[2rem] md:gap-[4rem]">
             
-            <!-- Statistics -->
             <div class="flex flex-col gap-[1rem]">
                 <h4 class="text-white font-bold text-[1.25rem]">Impact</h4>
                 <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
@@ -215,7 +197,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Links -->
             <div class="flex flex-col gap-[1rem]">
                 <h4 class="text-white font-bold text-[1.25rem]">Navigation</h4>
                 <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
@@ -225,7 +206,6 @@
                 </div>
             </div>
 
-            <!-- External Funds -->
             <div class="flex flex-col gap-[1rem]">
                 <h4 class="text-white font-bold text-[1.25rem]">Partners</h4>
                 <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
@@ -235,19 +215,15 @@
                 </div>
             </div>
 
-            <!-- System Theme Inversion Selector -->
             <div class="flex flex-col gap-[1rem] md:items-end">
                 <h4 class="text-white font-bold text-[1.25rem] md:text-right">Appearance</h4>
                 <button id="theme-toggle" class="flex items-center justify-center gap-[0.5rem] bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-full px-[1.25rem] py-[0.5rem] transition-colors w-max text-[0.875rem]">
-                    <!-- Sun icon for dark mode (to switch to light) -->
                     <span id="theme-icon-light" class="hidden">☀️ Light Mode</span>
-                    <!-- Moon icon for light mode (to switch to dark) -->
                     <span id="theme-icon-dark">🌙 Dark Mode</span>
                 </button>
             </div>
         </div>
 
-        <!-- Legal Information Block -->
         <div class="w-full max-w-[80rem] mt-[3rem] pt-[1.5rem] border-t border-gray-700 text-center md:text-left text-[0.75rem] flex flex-col md:flex-row justify-between items-center gap-[1rem]">
             <p>&copy; 2026 Portal for an Ecological Volunteer Movement. All rights reserved.</p>
             <div class="flex gap-[1rem]">
@@ -257,7 +233,6 @@
         </div>
     </footer>
 
-    <!-- Interactive Scripts for Menu and Theme Toggle -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Burger Menu Logic ---
@@ -276,14 +251,11 @@
                 });
             });
 
-            // --- Theme Inversion Logic ---
             const themeToggleBtn = document.getElementById('theme-toggle');
             const htmlElement = document.documentElement;
             const themeIconLight = document.getElementById('theme-icon-light');
             const themeIconDark = document.getElementById('theme-icon-dark');
 
-            // Initialize theme based on user preference or previous choice
-            // Setting default to 'light' per requirements context, but supporting system preference
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 htmlElement.classList.add('dark');
                 updateIcons(true);
@@ -315,7 +287,6 @@
                 }
             }
             
-            // Prevent default form submission for demonstration purposes
             const form = document.querySelector('form');
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
