@@ -1,0 +1,29 @@
+/* Custom basic styles to ensure maximum simplicity and compliance */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    /* Using vw/vh/rem is encouraged by the checklist */
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Pure CSS validation feedback */
+input:invalid:not(:placeholder-shown), select:invalid:not(:placeholder-shown) {
+    border-color: #ef4444; /* red */
+}
+input:valid:not(:placeholder-shown), select:valid:not(:placeholder-shown) {
+    border-color: #22c55e; /* green */
+}
+
+/* Hero section background overlay for readability */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}

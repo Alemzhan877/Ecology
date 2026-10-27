@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal for an Ecological Volunteer Movement</title>
+    <!-- Using Tailwind CSS for layout. Tailwind relies on rem, %, vw/vh, perfectly matching the "no fixed px for widths/margins" requirement -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 w-full overflow-x-hidden">
+
+    <!-- 1. Header/Nav Component -->
+    <header class="w-full bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+        <!-- Desktop Container -->
+        <div class="max-w-[80rem] mx-auto p-[1rem] flex justify-between items-center w-full">
+            
+            <!-- Logo: International recycling symbol -->
+            <a href="#" class="flex items-center gap-[0.5rem] text-[1.5rem] font-bold text-green-600 dark:text-green-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-[2rem] h-[2rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <path d="M3.27 6.96L12 12.01l8.73-5.05"></path>
+                    <path d="M12 22.08V12"></path>
+                </svg>
+                <span>EcoPortal</span>
+            </a>
+
+            <!-- Adaptive navigation bar (Desktop) -->
+            <nav class="hidden md:flex gap-[2rem] items-center text-[1rem]">
+                <a href="#eco-actions" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">Eco-Actions</a>
+                <a href="#collection-points" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">Collection Points</a>
+                <a href="#eco-tips" class="hover:text-green-600 dark:hover:text-green-400 transition-colors">Eco-Tips</a>
+                <a href="#volunteer" class="hover:text-green-600 dark:hover:text-green-400 transition-colors font-semibold">Become a Volunteer</a>
+            </nav>
+
+            <!-- Burger Menu Button (Mobile) -->
+            <button id="burger-btn" class="md:hidden p-[0.5rem] focus:outline-none" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-[1.5rem] h-[1.5rem]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Hidden burger menu on smartphones -->
+        <nav id="mobile-menu" class="hidden md:hidden flex flex-col items-center bg-gray-100 dark:bg-gray-700 w-full p-[1rem] gap-[1rem] shadow-inner">
+            <a href="#eco-actions" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem]">Eco-Actions</a>
+            <a href="#collection-points" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem]">Collection Points</a>
+            <a href="#eco-tips" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem]">Eco-Tips</a>
+            <a href="#volunteer" class="mobile-link text-[1.125rem] w-full text-center py-[0.5rem] font-semibold text-green-600 dark:text-green-400">Become a Volunteer</a>
+        </nav>
+    </header>
+
+    <main class="w-full flex flex-col items-center">
+        
+        <!-- 2. Hero Section Component -->
+        <section id="eco-actions" class="hero-bg w-full flex flex-col justify-center items-center text-center p-[2rem] min-h-[50vh] md:min-h-[70vh]">
+            <div class="max-w-[40rem] flex flex-col items-center gap-[1.5rem]">
+                <!-- Structured header typography -->
+                <h1 class="text-[2.5rem] md:text-[4rem] font-extrabold text-white leading-tight">
+                    Let's Make Our City Cleaner Together
+                </h1>
+                <!-- Emphasized Call to Action (CTA) element -->
+                <button onclick="document.getElementById('volunteer').scrollIntoView({behavior: 'smooth'})" 
+                        class="bg-green-600 hover:bg-green-700 text-white font-bold py-[1rem] px-[2rem] rounded-full text-[1.125rem] transition-transform transform hover:scale-105 shadow-lg w-full md:w-auto">
+                    I Want to Join the Clean-up Day
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. Grid Section Component (Collection Points) -->
+        <section id="collection-points" class="w-full max-w-[80rem] p-[2rem] my-[2rem] md:my-[4rem] flex flex-col gap-[2rem]">
+            <h2 class="text-[2rem] font-bold text-center">Infrastructure & Collection Points</h2>
+            
+            <!-- Informational multi-column matrix (Grid) -->
+            <!-- grid-cols-1 on mobile, md:grid-cols-3 on desktop -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-[1.5rem] w-full">
+                
+                <article class="bg-white dark:bg-gray-800 p-[1.5rem] rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-[1rem]">
+                    <h3 class="text-[1.25rem] font-bold text-green-600 dark:text-green-400">Central Park Station</h3>
+                    <div class="text-[0.875rem] flex flex-col gap-[0.5rem]">
+                        <p><strong>Address:</strong> 15 Green Avenue</p>
+                        <p><strong>Schedule:</strong> Mon-Fri, 08:00 - 18:00</p>
+                        <div>
+                            <strong>Fractions Accepted:</strong>
+                            <ul class="list-disc list-inside mt-[0.25rem] text-gray-600 dark:text-gray-300">
+                                <li>Polymers (Plastics 1, 2, 4)</li>
+                                <li>Glass (Clear & Colored)</li>
+                                <li>Paper & Cardboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-800 p-[1.5rem] rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-[1rem]">
+                    <h3 class="text-[1.25rem] font-bold text-green-600 dark:text-green-400">North District Hub</h3>
+                    <div class="text-[0.875rem] flex flex-col gap-[0.5rem]">
+                        <p><strong>Address:</strong> 88 Industrial Way</p>
+                        <p><strong>Schedule:</strong> 24/7 Automats</p>
+                        <div>
+                            <strong>Fractions Accepted:</strong>
+                            <ul class="list-disc list-inside mt-[0.25rem] text-gray-600 dark:text-gray-300">
+                                <li>Polymers (PET Bottles)</li>
+                                <li>Glass (Clear Only)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-white dark:bg-gray-800 p-[1.5rem] rounded-xl shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-[1rem]">
+                    <h3 class="text-[1.25rem] font-bold text-green-600 dark:text-green-400">University Campus</h3>
+                    <div class="text-[0.875rem] flex flex-col gap-[0.5rem]">
+                        <p><strong>Address:</strong> Student Rd. Bldg 4</p>
+                        <p><strong>Schedule:</strong> Sat-Sun, 10:00 - 16:00</p>
+                        <div>
+                            <strong>Fractions Accepted:</strong>
+                            <ul class="list-disc list-inside mt-[0.25rem] text-gray-600 dark:text-gray-300">
+                                <li>Paper (Books, Magazines)</li>
+                                <li>Polymers (Caps only)</li>
+                                <li>Glass (All types)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 4. Feedback Form Component -->
+        <section id="volunteer" class="w-full bg-green-50 dark:bg-gray-800 p-[2rem] py-[4rem] flex justify-center">
+            <div class="max-w-[40rem] w-full flex flex-col gap-[1.5rem] bg-white dark:bg-gray-900 p-[2rem] rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+                <div class="text-center">
+                    <h2 class="text-[1.5rem] md:text-[2rem] font-bold text-green-700 dark:text-green-500">Become a Volunteer</h2>
+                    <p class="text-[0.875rem] text-gray-500 dark:text-gray-400 mt-[0.5rem]">Fill out the questionnaire to join our applicant pool.</p>
+                </div>
+
+                <!-- Interactive data collection form with CSS validation -->
+                <form action="#" method="POST" class="flex flex-col gap-[1.25rem]">
+                    
+                    <div class="flex flex-col gap-[0.5rem]">
+                        <label for="v-name" class="text-[0.875rem] font-semibold">Full Name *</label>
+                        <input type="text" id="v-name" name="name" required placeholder="John Doe" 
+                               class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
+                    </div>
+
+                    <!-- Checklist requirement: type="email" and type="tel" -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-[1.25rem] w-full">
+                        <div class="flex flex-col gap-[0.5rem] w-full">
+                            <label for="v-email" class="text-[0.875rem] font-semibold">Email Address *</label>
+                            <input type="email" id="v-email" name="email" required placeholder="example@mail.com" 
+                                   class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="flex flex-col gap-[0.5rem] w-full">
+                            <label for="v-tel" class="text-[0.875rem] font-semibold">Phone Number *</label>
+                            <input type="tel" id="v-tel" name="tel" required placeholder="+1 234 567 8900" 
+                                   class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-[1.25rem] w-full">
+                        <div class="flex flex-col gap-[0.5rem] w-full">
+                            <label for="v-age" class="text-[0.875rem] font-semibold">Age *</label>
+                            <input type="number" id="v-age" name="age" required min="16" max="99" placeholder="18" 
+                                   class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                        <div class="flex flex-col gap-[0.5rem] w-full">
+                            <label for="v-district" class="text-[0.875rem] font-semibold">District *</label>
+                            <input type="text" id="v-district" name="district" required placeholder="Downtown" 
+                                   class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-green-500">
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-[0.5rem] w-full">
+                        <label for="v-competency" class="text-[0.875rem] font-semibold">Available Competencies *</label>
+                        <select id="v-competency" name="competency" required 
+                                class="w-full p-[0.75rem] border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            <option value="" disabled selected>Select a competency...</option>
+                            <option value="transport">Transport (Logistics, Driving)</option>
+                            <option value="resources">Resources (Materials, Tools supply)</option>
+                            <option value="labor">Manual Labor (Sorting, Cleaning)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="mt-[1rem] w-full bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold py-[1rem] rounded-lg text-[1.125rem] hover:opacity-90 transition-opacity">
+                        Submit Registration
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Footer Component -->
+    <footer class="w-full bg-gray-900 text-gray-300 py-[3rem] px-[2rem] flex flex-col items-center">
+        <div class="max-w-[80rem] w-full grid grid-cols-1 md:grid-cols-4 gap-[2rem] md:gap-[4rem]">
+            
+            <!-- Statistics -->
+            <div class="flex flex-col gap-[1rem]">
+                <h4 class="text-white font-bold text-[1.25rem]">Impact</h4>
+                <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
+                    <p>Total Volunteers: <strong class="text-green-400">1,240</strong></p>
+                    <p>Recycled (Tons): <strong class="text-green-400">8,530</strong></p>
+                    <p>Active Points: <strong class="text-green-400">42</strong></p>
+                </div>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="flex flex-col gap-[1rem]">
+                <h4 class="text-white font-bold text-[1.25rem]">Navigation</h4>
+                <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
+                    <a href="#eco-actions" class="hover:text-white transition-colors">Eco-Actions</a>
+                    <a href="#collection-points" class="hover:text-white transition-colors">Map Data</a>
+                    <a href="#eco-tips" class="hover:text-white transition-colors">Tips & Articles</a>
+                </div>
+            </div>
+
+            <!-- External Funds -->
+            <div class="flex flex-col gap-[1rem]">
+                <h4 class="text-white font-bold text-[1.25rem]">Partners</h4>
+                <div class="flex flex-col gap-[0.5rem] text-[0.875rem]">
+                    <a href="#" class="hover:text-white transition-colors">Global Eco Fund</a>
+                    <a href="#" class="hover:text-white transition-colors">City Green Initiative</a>
+                    <a href="#" class="hover:text-white transition-colors">Save Earth Foundation</a>
+                </div>
+            </div>
+
+            <!-- System Theme Inversion Selector -->
+            <div class="flex flex-col gap-[1rem] md:items-end">
+                <h4 class="text-white font-bold text-[1.25rem] md:text-right">Appearance</h4>
+                <button id="theme-toggle" class="flex items-center justify-center gap-[0.5rem] bg-gray-800 hover:bg-gray-700 border border-gray-600 rounded-full px-[1.25rem] py-[0.5rem] transition-colors w-max text-[0.875rem]">
+                    <!-- Sun icon for dark mode (to switch to light) -->
+                    <span id="theme-icon-light" class="hidden">☀️ Light Mode</span>
+                    <!-- Moon icon for light mode (to switch to dark) -->
+                    <span id="theme-icon-dark">🌙 Dark Mode</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Legal Information Block -->
+        <div class="w-full max-w-[80rem] mt-[3rem] pt-[1.5rem] border-t border-gray-700 text-center md:text-left text-[0.75rem] flex flex-col md:flex-row justify-between items-center gap-[1rem]">
+            <p>&copy; 2026 Portal for an Ecological Volunteer Movement. All rights reserved.</p>
+            <div class="flex gap-[1rem]">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts for Menu and Theme Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Burger Menu Logic ---
+            const burgerBtn = document.getElementById('burger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            burgerBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // --- Theme Inversion Logic ---
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const themeIconLight = document.getElementById('theme-icon-light');
+            const themeIconDark = document.getElementById('theme-icon-dark');
+
+            // Initialize theme based on user preference or previous choice
+            // Setting default to 'light' per requirements context, but supporting system preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+                updateIcons(true);
+            } else {
+                htmlElement.classList.remove('dark');
+                updateIcons(false);
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                const isDark = htmlElement.classList.contains('dark');
+                if (isDark) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.theme = 'light';
+                    updateIcons(false);
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.theme = 'dark';
+                    updateIcons(true);
+                }
+            });
+
+            function updateIcons(isDark) {
+                if (isDark) {
+                    themeIconLight.classList.remove('hidden');
+                    themeIconDark.classList.add('hidden');
+                } else {
+                    themeIconLight.classList.add('hidden');
+                    themeIconDark.classList.remove('hidden');
+                }
+            }
+            
+            // Prevent default form submission for demonstration purposes
+            const form = document.querySelector('form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your registration! (Demonstration mock response)');
+            });
+        });
+    </script>
+</body>
+</html>
